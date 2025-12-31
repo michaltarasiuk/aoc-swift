@@ -2,19 +2,19 @@ import Foundation
 
 let input = try! String(contentsOfFile: "Day01.txt", encoding: .utf8)
 
-let STARTING_SETTING = 50
-let MODULO_VALUE = 100
+let startingSetting = 50
+let moduloValue = 100
 
-var currentSetting = STARTING_SETTING
+var currentSetting = startingSetting
 var zeroStopCount = 0
 for rotation in input.split(separator: "\n") {
   guard let direction = rotation.first else { continue }
   let steps = Int(rotation.dropFirst()) ?? 0
   switch direction {
   case "L":
-    currentSetting = (currentSetting - steps + MODULO_VALUE) % MODULO_VALUE
+    currentSetting = (currentSetting - steps + moduloValue) % moduloValue
   case "R":
-    currentSetting = (currentSetting + steps) % MODULO_VALUE
+    currentSetting = (currentSetting + steps) % moduloValue
   default:
     continue
   }
