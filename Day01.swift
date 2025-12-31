@@ -2,21 +2,26 @@ import Foundation
 
 let input = try! String(contentsOfFile: "Day01.txt", encoding: .utf8)
 
-let startingDialPosition = 50
-let dialSize = 100
+var pos = 50
+var finalZeros = 0
+var clickZeros = 0
 
-var dialPosition = startingDialPosition
-var zeroStopCount = 0
-for rotation in input.split(separator: "\n") {
+for line in input.split(separator: "\n") {
   guard
-    let direction = rotation.first,
-    let steps = Int(rotation.dropFirst())
+    let dir = line.first,
+    let ticks = Int(line.dropFirst())
   else { continue }
-  let sign = direction == "L" ? -1 : direction == "R" ? 1 : 0
-  dialPosition = (dialPosition + sign * steps + dialSize) % dialSize
-  if dialPosition == 0 {
-    zeroStopCount += 1
+  let move = (dir == "L") ? -1 : 1
+  for _ in 0..<ticks {
+    pos = (pos + move + 100) % 100
+    if pos == 0 {
+      clickZeros += 1
+    }
+  }
+  if pos == 0 {
+    finalZeros += 1
   }
 }
 
-print("Part 1: \(zeroStopCount)")
+print("Part 1: \(finalZeros)")
+print("Part 2: \(clickZeros)")
