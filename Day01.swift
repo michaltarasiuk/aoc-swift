@@ -8,8 +8,10 @@ let moduloValue = 100
 var currentSetting = startingSetting
 var zeroStopCount = 0
 for rotation in input.split(separator: "\n") {
-  guard let direction = rotation.first else { continue }
-  let steps = Int(rotation.dropFirst()) ?? 0
+  guard
+    let direction = rotation.first,
+    let steps = Int(rotation.dropFirst())
+  else { continue }
   switch direction {
   case "L":
     currentSetting = (currentSetting - steps + moduloValue) % moduloValue
