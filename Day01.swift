@@ -2,25 +2,19 @@ import Foundation
 
 let input = try! String(contentsOfFile: "Day01.txt", encoding: .utf8)
 
-let startingSetting = 50
-let moduloValue = 100
+let startingDialPosition = 50
+let dialSize = 100
 
-var currentSetting = startingSetting
+var dialPosition = startingDialPosition
 var zeroStopCount = 0
 for rotation in input.split(separator: "\n") {
   guard
     let direction = rotation.first,
     let steps = Int(rotation.dropFirst())
   else { continue }
-  switch direction {
-  case "L":
-    currentSetting = (currentSetting - steps + moduloValue) % moduloValue
-  case "R":
-    currentSetting = (currentSetting + steps) % moduloValue
-  default:
-    continue
-  }
-  if currentSetting == 0 {
+  let sign = direction == "L" ? -1 : direction == "R" ? 1 : 0
+  dialPosition = (dialPosition + sign * steps + dialSize) % dialSize
+  if dialPosition == 0 {
     zeroStopCount += 1
   }
 }
