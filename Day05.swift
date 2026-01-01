@@ -2,19 +2,10 @@ import Foundation
 
 let input = try! String(contentsOfFile: "Day05.txt", encoding: .utf8)
 
-struct Range {
-  let start: Int
-  let end: Int
-
-  func contains(_ value: Int) -> Bool {
-    return start...end ~= value
-  }
-}
-
-func parseRange(_ range: String) -> Range? {
+func parseRange(_ range: String) -> ClosedRange<Int>? {
   let parts = range.split(separator: "-").compactMap { Int($0) }
   guard parts.count == 2 else { return nil }
-  return Range(start: parts[0], end: parts[1])
+  return parts[0]...parts[1]
 }
 
 let paragraphs =
