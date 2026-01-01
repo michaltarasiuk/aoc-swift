@@ -11,10 +11,8 @@ func findLargestJoltage(_ bank: [Int]) -> Int {
   return a * 10 + b
 }
 
-var total = 0
-for line in input.components(separatedBy: .newlines) {
-  let bank = line.compactMap { $0.wholeNumberValue }
-  total += findLargestJoltage(bank)
+let total = input.components(separatedBy: .newlines).reduce(0) {
+  $0 + findLargestJoltage($1.compactMap { $0.wholeNumberValue })
 }
 
 print("Part 1: \(total)")
