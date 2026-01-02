@@ -10,25 +10,20 @@ let paperMap =
   .components(separatedBy: .newlines)
   .map { Array($0) }
 
+let height = paperMap.count
+let width = paperMap.first?.count ?? 0
+
 var accessibleRollsCount = 0
 
-for (y, row) in paperMap.enumerated() {
-  for (x, cell) in row.enumerated() {
-    if cell == emptySpace {
-      continue
-    }
+for y in 0..<height {
+  for x in 0..<width where paperMap[y][x] == paperRoll {
     var adjacentRollsCount = 0
     for dy in -1...1 {
-      for dx in -1...1 {
-        if dy == 0 && dx == 0 {
-          continue
-        }
+      for dx in -1...1 where !(dy == 0 && dx == 0) {
         let ny = y + dy
         let nx = x + dx
-        if paperMap.indices.contains(ny) && paperMap[ny].indices.contains(nx) {
-          if paperMap[ny][nx] == paperRoll {
-            adjacentRollsCount += 1
-          }
+        if (0..<height).contains(ny) && (0..<width).contains(nx) && paperMap[ny][nx] == paperRoll {
+          adjacentRollsCount += 1
         }
       }
     }
