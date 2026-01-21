@@ -12,4 +12,4 @@ for (i, char) in input.enumerated() {
 }
 
 print("Part 1: \(floor)")
-print("Part 2: \(basementEntry ?? 0)")
+print("Part 2: \(basementEntry ?? -1)")
