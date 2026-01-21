@@ -1,6 +1,6 @@
 import Foundation
 
-let input = try! String(contentsOfFile: "Day04.txt", encoding: .utf8)
+let input = try String(contentsOfFile: "04.txt", encoding: .utf8)
 
 let paperRoll: Character = "@"
 let emptySpace: Character = "."

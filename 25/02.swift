@@ -1,6 +1,6 @@
 import Foundation
 
-let input = try! String(contentsOfFile: "Day02.txt", encoding: .utf8)
+let input = try String(contentsOfFile: "02.txt", encoding: .utf8)
 
 func isPalindrome(_ id: String) -> Bool {
   guard id.count.isMultiple(of: 2) else { return false }

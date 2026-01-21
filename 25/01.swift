@@ -1,6 +1,6 @@
 import Foundation
 
-let input = try! String(contentsOfFile: "Day01.txt", encoding: .utf8)
+let input = try String(contentsOfFile: "Day01.txt", encoding: .utf8)
 
 var pos = 50
 var finalZeros = 0

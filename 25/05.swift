@@ -1,6 +1,6 @@
 import Foundation
 
-let input = try! String(contentsOfFile: "Day05.txt", encoding: .utf8)
+let input = try String(contentsOfFile: "05.txt", encoding: .utf8)
 
 func parseRange(_ range: String) -> ClosedRange<Int>? {
   let parts = range.split(separator: "-").compactMap { Int($0) }

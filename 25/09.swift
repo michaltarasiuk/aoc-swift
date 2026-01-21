@@ -1,6 +1,6 @@
 import Foundation
 
-let input = try! String(contentsOfFile: "Day09.txt", encoding: .utf8)
+let input = try String(contentsOfFile: "09.txt", encoding: .utf8)
 
 struct Tile {
   let x: Int

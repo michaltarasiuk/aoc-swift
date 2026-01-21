@@ -1,6 +1,6 @@
 import Foundation
 
-let input = try! String(contentsOfFile: "Day03.txt", encoding: .utf8)
+let input = try String(contentsOfFile: "03.txt", encoding: .utf8)
 
 func findLargestJoltage(_ bank: [Int]) -> Int {
   guard
