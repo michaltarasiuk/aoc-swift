@@ -7,7 +7,7 @@ let emptySpace: Character = "."
 
 let paperMap =
   input
-  .components(separatedBy: .newlines)
+  .split(separator: "\n")
   .map { Array($0) }
 
 let height = paperMap.count

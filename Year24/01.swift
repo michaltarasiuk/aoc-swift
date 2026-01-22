@@ -4,7 +4,7 @@ let input = try String(contentsOfFile: "01.txt", encoding: .utf8)
 
 let lines =
   input
-  .components(separatedBy: .newlines)
+  .split(separator: "\n")
   .map({
     $0
       .split(separator: #/\s+/#)

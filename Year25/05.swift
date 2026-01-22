@@ -2,7 +2,7 @@ import Foundation
 
 let input = try String(contentsOfFile: "05.txt", encoding: .utf8)
 
-func parseRange(_ range: String) -> ClosedRange<Int>? {
+func parseRange(_ range: Substring) -> ClosedRange<Int>? {
   let parts = range.split(separator: "-").compactMap { Int($0) }
   guard parts.count == 2 else { return nil }
   return parts[0]...parts[1]
@@ -10,8 +10,8 @@ func parseRange(_ range: String) -> ClosedRange<Int>? {
 
 let paragraphs =
   input
-  .components(separatedBy: "\n\n")
-  .map { $0.components(separatedBy: .newlines) }
+  .split(separator: "\n\n")
+  .map { $0.split(separator: "\n") }
 
 precondition(paragraphs.count == 2, "Error: Expected two paragraphs in input")
 

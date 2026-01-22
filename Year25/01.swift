@@ -6,7 +6,7 @@ var pos = 50
 var finalZeros = 0
 var clickZeros = 0
 
-for line in input.components(separatedBy: .newlines) {
+for line in input.split(separator: "\n") {
   guard
     let dir = line.first,
     let ticks = Int(line.dropFirst())

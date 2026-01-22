@@ -13,7 +13,7 @@ struct Present {
   }
 }
 
-func parsePresent(_ present: String) -> Present? {
+func parsePresent(_ present: Substring) -> Present? {
   let d = present.split(separator: "x").compactMap { Int($0) }
   guard d.count == 3 else { return nil }
   return Present(l: d[0], w: d[1], h: d[2])
@@ -21,7 +21,7 @@ func parsePresent(_ present: String) -> Present? {
 
 let totalSquareFeet =
   input
-  .components(separatedBy: .newlines)
+  .split(separator: "\n")
   .compactMap { parsePresent($0) }
   .map { $0.totalPaperNeeded() }
   .reduce(0, +)

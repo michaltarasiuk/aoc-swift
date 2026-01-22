@@ -11,7 +11,7 @@ struct Tile {
   }
 }
 
-func parseTile(_ tile: String) -> Tile? {
+func parseTile(_ tile: Substring) -> Tile? {
   let parts = tile.split(separator: ",")
   guard parts.count == 2,
     let x = Int(parts[0]),
@@ -22,7 +22,7 @@ func parseTile(_ tile: String) -> Tile? {
 
 let tiles =
   input
-  .components(separatedBy: .newlines)
+  .split(separator: "\n")
   .compactMap { parseTile($0) }
 
 var largestArea = 0
